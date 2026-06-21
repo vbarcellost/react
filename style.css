@@ -1,0 +1,84 @@
+:root {
+  font-family: 'DM Sans', Arial, sans-serif;
+  color: #17362e;
+  background: #f5f0e7;
+  font-synthesis: none;
+}
+
+* { box-sizing: border-box; }
+
+body { margin: 0; min-width: 320px; min-height: 100vh; }
+button, input { font: inherit; }
+
+.pagina {
+  min-height: 100vh;
+  padding: 68px 24px 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.pagina::before {
+  content: '';
+  position: absolute;
+  width: 430px;
+  height: 430px;
+  border-radius: 50%;
+  background: #dcebdd;
+  top: -230px;
+  right: -110px;
+  z-index: -1;
+}
+
+.apresentacao, .grade, footer { width: min(1120px, 100%); margin-inline: auto; }
+.apresentacao { margin-bottom: 38px; }
+.etiqueta { color: #34735f; font-size: .72rem; font-weight: 700; letter-spacing: .2em; }
+h1 { font-size: clamp(3rem, 7vw, 5.5rem); line-height: .98; letter-spacing: -.055em; margin: 14px 0 18px; }
+h1 em { color: #cb674b; font-family: 'Playfair Display', Georgia, serif; }
+.apresentacao > p { color: #697b75; line-height: 1.7; max-width: 650px; margin: 0; }
+
+.grade { display: grid; grid-template-columns: .9fr 1.1fr; gap: 22px; align-items: start; }
+.cartao { background: rgba(255,255,255,.8); border: 1px solid #fff; border-radius: 24px; padding: 30px; box-shadow: 0 20px 55px rgba(35,55,47,.08); }
+.titulo-cartao { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 28px; }
+.numero { width: 42px; height: 42px; flex: 0 0 42px; border: 1px solid #afc2bb; border-radius: 50%; display: grid; place-items: center; color: #34735f; font-size: .72rem; font-weight: 700; }
+h2 { font-size: 1.18rem; margin: 0 0 5px; }
+.titulo-cartao p { color: #89958f; font-size: .85rem; margin: 0; }
+
+.campos { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+label { color: #53665f; font-size: .75rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; }
+.campo { display: flex; align-items: center; margin-top: 8px; border: 1px solid #dedbd2; border-radius: 12px; background: #f8f6f1; transition: .2s; }
+.campo:focus-within { border-color: #34735f; box-shadow: 0 0 0 3px rgba(52,115,95,.1); }
+input { width: 100%; min-width: 0; border: 0; outline: 0; padding: 14px; color: #17362e; background: transparent; }
+.campo span { padding-right: 14px; color: #89958f; text-transform: none; }
+.limpar { padding: 13px 0 0; border: 0; color: #856b63; background: transparent; font-size: .8rem; text-decoration: underline; cursor: pointer; }
+.limpar:disabled { opacity: .35; cursor: default; }
+
+.resultado { min-height: 150px; margin-top: 25px; padding: 24px; border-radius: 18px; display: grid; place-items: center; color: #fff; background: #17362e; text-align: center; }
+.resultado.calculado { grid-template-columns: 1fr 1fr; text-align: left; }
+.valor-imc span { color: #b8c8c2; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; }
+.valor-imc strong { display: block; margin-top: 8px; font-size: 3.5rem; line-height: 1; }
+.classificacao { padding-left: 24px; border-left: 1px solid #48615a; font-weight: 600; }
+.classificacao i, td i { display: inline-block; width: 8px; height: 8px; margin-right: 9px; border-radius: 50%; }
+.instrucao { max-width: 270px; color: #b8c8c2; font-size: .88rem; line-height: 1.6; }
+
+.tabela-responsiva { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+th { padding: 0 14px 12px; color: #89958f; font-size: .67rem; letter-spacing: .11em; text-align: left; text-transform: uppercase; }
+td { padding: 16px 14px; border-top: 1px solid #e9e5dd; transition: .2s; }
+td:first-child { font-weight: 600; white-space: nowrap; }
+tr.ativo td { color: #24634f; background: #eaf4ed; font-weight: 700; }
+tr.ativo td:first-child { border-radius: 10px 0 0 10px; }
+tr.ativo td:last-child { border-radius: 0 10px 10px 0; }
+footer { margin-top: 26px; color: #87938e; font-size: .72rem; text-align: center; }
+
+@media (max-width: 800px) {
+  .pagina { padding-top: 45px; }
+  .grade { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .pagina { padding-inline: 14px; }
+  .cartao { padding: 22px 18px; border-radius: 18px; }
+  .campos, .resultado.calculado { grid-template-columns: 1fr; }
+  .resultado.calculado { text-align: center; }
+  .classificacao { padding: 18px 0 0; border-top: 1px solid #48615a; border-left: 0; }
+}
